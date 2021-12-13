@@ -1,0 +1,8 @@
+7
+1.Si A entonces EXP,FC=0.5
+2.Si B entonces EXP,FC=0.9
+3.Si C Entonces CAN, FC=0.5
+4.Si D Entonces CAN, FC=1
+5.Si EXP y E Entonces CACC, FC=−0.5
+6.Si CAN Entonces CACC, FC=0.5
+7.Si F y G Entonces CACC, FC=0.7
