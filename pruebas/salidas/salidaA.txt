@@ -1,0 +1,104 @@
+Los ficheros se han abierto correctamente.
+BC usada: ./pruebas/BC-A.txt
+BH usada: ./pruebas/BH-A.txt
+Objetivo: ganarPartida
+Comenzamos razonamiento: 
+
+Queremos calcular "ganarPartida"
+	Nuevas Metas = { }
+
+	CC = { R2 R5 R6 }
+	Nuevas Metas = { cartasFuertes mejorMazoOp opConfiado sabemosEstrategia winCondition }
+
+Activación de la regla R2: 
+	CC = { R5 R6 }
+	Caso 1, Disyunción: Escoger el máximo valor entre los antecedentes.
+Queremos calcular "cartasFuertes"
+	Nuevas Metas = { mejorMazoOp opConfiado sabemosEstrategia winCondition }
+
+	CC = { R1 R5 R6 }
+	Nuevas Metas = { localizFav manoInicialFav mejorMazoOp opConfiado sabemosEstrategia winCondition }
+
+Activación de la regla R1: 
+	CC = { R5 R6 }
+	Caso 1, Conjunción: Escoger el mínimo valor entre los antecedentes.
+Queremos calcular "manoInicialFav"
+	El valor ya está almacenado: 0.3
+	Nuevas Metas = { localizFav mejorMazoOp opConfiado sabemosEstrategia winCondition }
+
+Queremos calcular "localizFav"
+	El valor ya está almacenado: 0.7
+	Nuevas Metas = { mejorMazoOp opConfiado sabemosEstrategia winCondition }
+
+	Caso 3 por conjunción: 0.3, 0.85; FC(R1) = 0.85 * max(0, 0.3) = 0.255
+	Valor calculado para cartasFuertes por R1: 0.255
+
+Queremos calcular "winCondition"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { mejorMazoOp opConfiado sabemosEstrategia }
+
+	Caso 3 por disyunción: 1, 0.65; FC(R2) = 0.65 * max(0, 1) = 0.65
+	Valor calculado para ganarPartida por R2: 0.65
+
+Activación de la regla R5: 
+	CC = { R6 }
+	Caso 1, Disyunción: Escoger el máximo valor entre los antecedentes.
+Queremos calcular "mejorMazoOp"
+	Nuevas Metas = { opConfiado sabemosEstrategia }
+
+	CC = { R4 R6 }
+	Nuevas Metas = { cartasNuevasOp opConfiado sabemosEstrategia }
+
+Activación de la regla R4: 
+	CC = { R6 }
+Queremos calcular "cartasNuevasOp"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { opConfiado sabemosEstrategia }
+
+	Caso 3 por regla unitaria: 1, 0.35; FC(R4) = 0.35 * max(0, 1) = 0.35
+	Valor calculado para mejorMazoOp por R4: 0.35
+
+Queremos calcular "opConfiado"
+	Nuevas Metas = { sabemosEstrategia }
+
+	CC = { R3 R6 }
+	Nuevas Metas = { sabemosEstrategia snap t5OpFuerte }
+
+Activación de la regla R3: 
+	CC = { R6 }
+	Caso 1, Disyunción: Escoger el máximo valor entre los antecedentes.
+Queremos calcular "t5OpFuerte"
+	El valor ya está almacenado: 0.2
+	Nuevas Metas = { sabemosEstrategia snap }
+
+Queremos calcular "snap"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { sabemosEstrategia }
+
+	Caso 3 por disyunción: 1, 0.7; FC(R3) = 0.7 * max(0, 1) = 0.7
+	Valor calculado para opConfiado por R3: 0.7
+
+	Caso 3 por disyunción: 0.7, -0.85; FC(R5) = -0.85 * max(0, 0.7) = -0.595
+	Valor calculado para ganarPartida por R5: -0.595
+
+Activación de la regla R6: 
+	CC = { }
+Queremos calcular "sabemosEstrategia"
+	El valor ya está almacenado: 0.8
+	Nuevas Metas = { }
+
+	Caso 3 por regla unitaria: 0.8, 0.5; FC(R6) = 0.5 * max(0, 0.8) = 0.4
+	Valor calculado para ganarPartida por R6: 0.4
+
+	Caso 2: el valor ganarPartida es consecuente en 3 reglas:
+		R2 con valor 0.65
+		R5 con valor -0.595
+		R6 con valor 0.4
+	Combinación de R2 y R5 para calcular ganarPartida
+	0.65 + -0.595 / (1 - min(|0.65|, |0.595|)) = 0.135802
+	Combinación de R5 y R6 para calcular ganarPartida
+	0.135802 + 0.4 * (1 - 0.4) = 0.481481
+0.481481
+El valor calculado para ganarPartida es: 0.481481
+
+La solución final es 0.481481

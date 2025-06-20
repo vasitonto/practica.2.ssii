@@ -1,0 +1,10 @@
+7
+pocosAños, FC=1
++3años, FC=0
+viajeCorto, FC=0
+viajeLargo, FC=1
+noViajaSolo, FC=0
+joven, FC=0.4
+bebido, FC=0.5
+Objetivo
+causante

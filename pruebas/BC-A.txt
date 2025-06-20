@@ -1,0 +1,7 @@
+6
+R1: Si manoInicialFav y localizFav Entonces cartasFuertes, FC=0.85
+R2: Si cartasFuertes o winCondition Entonces ganarPartida, FC=0.65
+R3: Si t5OpFuerte o snap Entonces opConfiado, FC=0.7
+R4: Si cartasNuevasOp Entonces mejorMazoOp, FC=0.35
+R5: Si mejorMazoOp o opConfiado Entonces ganarPartida, FC=-0.85
+R6: Si sabemosEstrategia Entonces ganarPartida, FC=0.5

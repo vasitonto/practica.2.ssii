@@ -1,0 +1,50 @@
+Los ficheros se han abierto correctamente.
+BC usada: ./pruebas/BC-2.txt
+BH usada: ./pruebas/BH-2-1.txt
+Objetivo: ganaEST
+Comenzamos razonamiento: 
+
+Queremos calcular "ganaEST"
+	Nuevas Metas = { }
+
+	CC = { R1 R4 R6 }
+	Nuevas Metas = { arbMod les2pivEST publicoEqui }
+
+Activación de la regla R1: 
+	CC = { R4 R6 }
+Queremos calcular "arbMod"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { les2pivEST publicoEqui }
+
+	Caso 3 por regla unitaria: 1, 0.4; FC(R1) = 0.4 * max(0, 1) = 0.4
+	Valor calculado para ganaEST por R1: 0.4
+
+Activación de la regla R4: 
+	CC = { R6 }
+Queremos calcular "publicoEqui"
+	El valor ya está almacenado: 0.35
+	Nuevas Metas = { les2pivEST }
+
+	Caso 3 por regla unitaria: 0.35, -0.55; FC(R4) = -0.55 * max(0, 0.35) = -0.1925
+	Valor calculado para ganaEST por R4: -0.1925
+
+Activación de la regla R6: 
+	CC = { }
+Queremos calcular "les2pivEST"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { }
+
+	Caso 3 por regla unitaria: 1, -0.6; FC(R6) = -0.6 * max(0, 1) = -0.6
+	Valor calculado para ganaEST por R6: -0.6
+
+	Caso 2: el valor ganaEST es consecuente en 3 reglas:
+		R1 con valor 0.4
+		R4 con valor -0.1925
+		R6 con valor -0.6
+	Combinación de R1 y R4 para calcular ganaEST
+	0.4 + -0.1925 / (1 - min(|0.4|, |0.1925|)) = 0.256966
+	Combinación de R4 y R6 para calcular ganaEST
+	0.256966 + -0.6 / (1 - min(|0.256966|, |0.6|)) = -0.461667
+El valor calculado para ganaEST es: -0.461667
+
+La solución final es -0.461667

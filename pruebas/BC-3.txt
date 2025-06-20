@@ -1,0 +1,8 @@
+7
+R1: Si pocosAños Entonces experimentado, FC=0.5
+R2: Si +3años Entonces experimentado, FC=0.9
+R3: Si viajeCorto Entonces cansado, FC=0.5
+R4: Si viajeLargo Entonces cansado, FC=1
+R5: Si experimentado y noViajaSolo Entonces causante, FC=-0.5
+R6: Si cansado Entonces causante, FC=0.5
+R7: Si joven y bebido Entonces causante, FC=0.7

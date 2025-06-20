@@ -1,0 +1,118 @@
+Los ficheros se han abierto correctamente.
+BC usada: ./pruebas/BC-3.txt
+BH usada: ./pruebas/BH-3.txt
+Objetivo: causante
+Comenzamos razonamiento: 
+
+Queremos calcular "causante"
+	Nuevas Metas = { }
+
+	CC = { R5 R6 R7 }
+	Nuevas Metas = { bebido cansado experimentado joven noViajaSolo }
+
+Activación de la regla R5: 
+	CC = { R6 R7 }
+	Caso 1, Conjunción: Escoger el mínimo valor entre los antecedentes.
+Queremos calcular "experimentado"
+	Nuevas Metas = { bebido cansado joven noViajaSolo }
+
+	CC = { R1 R2 R6 R7 }
+	Nuevas Metas = { +3años bebido cansado joven noViajaSolo pocosAños }
+
+Activación de la regla R1: 
+	CC = { R2 R6 R7 }
+Queremos calcular "pocosAños"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { +3años bebido cansado joven noViajaSolo }
+
+	Caso 3 por regla unitaria: 1, 0.5; FC(R1) = 0.5 * max(0, 1) = 0.5
+	Valor calculado para experimentado por R1: 0.5
+
+Activación de la regla R2: 
+	CC = { R6 R7 }
+Queremos calcular "+3años"
+	El valor ya está almacenado: 0
+	Nuevas Metas = { bebido cansado joven noViajaSolo }
+
+	Caso 3 por regla unitaria: 0, 0.9; FC(R2) = 0.9 * max(0, 0) = 0
+	Valor calculado para experimentado por R2: 0
+
+	Caso 2: el valor experimentado es consecuente en 2 reglas:
+		R1 con valor 0.5
+		R2 con valor 0
+	Combinación de R1 y R2 para calcular experimentado
+	0.5 + 0 * (1 - 0) = 0.5
+0.5
+El valor calculado para experimentado es: 0.5
+
+Queremos calcular "noViajaSolo"
+	El valor ya está almacenado: 0
+	Nuevas Metas = { bebido cansado joven }
+
+	Caso 3 por conjunción: 0, -0.5; FC(R5) = -0.5 * max(0, 0) = -0
+	Valor calculado para causante por R5: -0
+
+Activación de la regla R6: 
+	CC = { R7 }
+Queremos calcular "cansado"
+	Nuevas Metas = { bebido joven }
+
+	CC = { R3 R4 R7 }
+	Nuevas Metas = { bebido joven viajeCorto viajeLargo }
+
+Activación de la regla R3: 
+	CC = { R4 R7 }
+Queremos calcular "viajeCorto"
+	El valor ya está almacenado: 0
+	Nuevas Metas = { bebido joven viajeLargo }
+
+	Caso 3 por regla unitaria: 0, 0.5; FC(R3) = 0.5 * max(0, 0) = 0
+	Valor calculado para cansado por R3: 0
+
+Activación de la regla R4: 
+	CC = { R7 }
+Queremos calcular "viajeLargo"
+	El valor ya está almacenado: 1
+	Nuevas Metas = { bebido joven }
+
+	Caso 3 por regla unitaria: 1, 1; FC(R4) = 1 * max(0, 1) = 1
+	Valor calculado para cansado por R4: 1
+
+	Caso 2: el valor cansado es consecuente en 2 reglas:
+		R3 con valor 0
+		R4 con valor 1
+	Combinación de R3 y R4 para calcular cansado
+	0 + 1 * (1 - 1) = 1
+1
+El valor calculado para cansado es: 1
+
+	Caso 3 por regla unitaria: 1, 0.5; FC(R6) = 0.5 * max(0, 1) = 0.5
+	Valor calculado para causante por R6: 0.5
+
+Activación de la regla R7: 
+	CC = { }
+	Caso 1, Conjunción: Escoger el mínimo valor entre los antecedentes.
+Queremos calcular "joven"
+	El valor ya está almacenado: 0.4
+	Nuevas Metas = { bebido }
+
+Queremos calcular "bebido"
+	El valor ya está almacenado: 0.5
+	Nuevas Metas = { }
+
+	Caso 3 por conjunción: 0.4, 0.7; FC(R7) = 0.7 * max(0, 0.4) = 0.28
+	Valor calculado para causante por R7: 0.28
+
+	Caso 2: el valor causante es consecuente en 3 reglas:
+		R5 con valor -0
+		R6 con valor 0.5
+		R7 con valor 0.28
+	Combinación de R5 y R6 para calcular causante
+	-0 + 0.5 * (1 - 0.5) = 0.5
+0.5
+	Combinación de R6 y R7 para calcular causante
+	0.5 + 0.28 * (1 - 0.28) = 0.64
+0.64
+El valor calculado para causante es: 0.64
+
+La solución final es 0.64

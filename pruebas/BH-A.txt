@@ -1,0 +1,10 @@
+7
+manoInicialFav, FC=0.3
+localizFav, FC=0.7
+winCondition, FC=1
+t5OpFuerte, FC=0.2
+snap, FC=1
+cartasNuevasOp, FC=1
+sabemosEstrategia, FC=0.8
+Objetivo
+ganarPartida
